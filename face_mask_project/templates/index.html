@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Face Mask Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; }
+        h1 { color: #333; }
+        .video-container { margin-top: 20px; border: 5px solid #333; display: inline-block; border-radius: 10px; overflow: hidden; }
+        img { max-width: 100%; height: auto; display: block; }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Face Mask Alert System</h1>
+    <p>Using OpenCV, Keras, and Flask</p>
+    
+    <div class="video-container">
+        <img src="{{ url_for('video_feed') }}" alt="Live Video Feed">
+    </div>
+</body>
+</html>
