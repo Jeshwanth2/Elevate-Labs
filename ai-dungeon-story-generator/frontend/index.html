@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dungeon - Pro Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Generate interactive fantasy stories using AI, featuring premium story generation and interactive narrative loops.">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header>
+            <h1 class="glow-text">AI Dungeon</h1>
+            <p class="subtitle">Experience professional AI Storytelling</p>
+        </header>
+
+        <!-- Setup Screen Section -->
+        <section id="setup-screen" class="glass-panel active slide-in">
+            <h2>Start Your Adventure</h2>
+            
+            <form id="setup-form">
+                <div class="form-group">
+                    <label for="genre">Setting / Genre</label>
+                    <select id="genre" required>
+                        <option value="High Fantasy">High Fantasy</option>
+                        <option value="Dark Fantasy">Dark Fantasy</option>
+                        <option value="Cyberpunk">Cyberpunk</option>
+                        <option value="Cosmic Horror">Cosmic Horror</option>
+                        <option value="Sci-Fi Space Opera">Sci-Fi Space Opera</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="char-name">Character Name</label>
+                    <input type="text" id="char-name" placeholder="E.g., Kaelen, Elara" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="char-details">Character Background</label>
+                    <textarea id="char-details" placeholder="A rogue seeking redemption after a botched heist..." rows="2" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="lore">World Lore / Rules</label>
+                    <textarea id="lore" placeholder="Magic is illegal and strictly regulated by the Iron Inquisition..." rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="starter-prompt">Opening Scene / Action</label>
+                    <textarea id="starter-prompt" placeholder="You are hiding in a tavern from the royal guards when suddenly..." rows="2" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary ripple-btn" id="start-btn">
+                    <span>Embark</span>
+                    <div class="loader-spinner" id="start-spinner"></div>
+                </button>
+            </form>
+        </section>
+
+        <!-- Story Screen Section -->
+        <section id="story-screen" class="glass-panel hidden">
+            <div id="story-history" class="story-history">
+                <!-- Story nodes will be appended here -->
+            </div>
+            
+            <div id="choices-container" class="choices-container">
+                <!-- Interactive choices will be rendered here -->
+            </div>
+
+            <div id="loading-indicator" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>The Pro Writer is drafting your fate...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
