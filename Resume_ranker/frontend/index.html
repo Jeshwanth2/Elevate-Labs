@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeIQ — AI Resume Ranker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+
+<body>
+
+  <!-- ── Background ── -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">Resume<em>IQ</em></span>
+    </div>
+    <div class="header-tag">ML-Powered · TF-IDF · NLP</div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-kicker">Intelligent Screening</div>
+    <h1 class="hero-title">
+      Rank Resumes with<br />
+      <span class="gradient-text">Machine Learning</span>
+    </h1>
+    <p class="hero-sub">Upload resumes, paste a job description, and let our ML pipeline score each candidate using
+      TF-IDF similarity, keyword analysis, experience detection, and education signals.</p>
+  </section>
+
+  <!-- ── Main App ── -->
+  <main class="app-container">
+
+    <!-- Upload Panel -->
+    <section class="card upload-card">
+      <div class="card-label">01 / JOB DESCRIPTION</div>
+      <h2 class="card-title">What are you hiring for?</h2>
+      <textarea id="jobDesc" class="jd-textarea"
+        placeholder="Paste the full job description here — required skills, responsibilities, qualifications…"
+        rows="8"></textarea>
+
+      <div class="card-label" style="margin-top:2rem">02 / RESUMES</div>
+      <h2 class="card-title">Upload Candidate Files</h2>
+
+      <div class="dropzone" id="dropzone">
+        <div class="drop-icon">📄</div>
+        <div class="drop-text">Drop resumes here or <label for="fileInput" class="drop-link">browse files</label></div>
+        <div class="drop-hint">PDF · DOCX · TXT · up to 16 MB each</div>
+        <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt" hidden />
+      </div>
+
+      <div class="file-list" id="fileList"></div>
+
+      <button class="rank-btn" id="rankBtn" disabled>
+        <span class="btn-icon">⚡</span>
+        <span class="btn-text">Rank Resumes</span>
+        <span class="btn-loader" id="btnLoader"></span>
+      </button>
+
+      <div class="error-box" id="errorBox" hidden></div>
+    </section>
+
+    <!-- Results Panel -->
+    <section class="results-panel" id="resultsPanel" hidden>
+      <div class="results-header">
+        <div class="results-meta">
+          <span id="resultCount"></span>
+          <span class="results-divider">·</span>
+          <span id="resultTimestamp"></span>
+        </div>
+        <button class="clear-btn" id="clearBtn">✕ Clear</button>
+      </div>
+
+      <!-- Score Overview Bar -->
+      <div class="overview-bar" id="overviewBar"></div>
+
+      <!-- Candidate Cards -->
+      <div class="candidate-grid" id="candidateGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- ── Detail Modal ── -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="static/app.js"></script>
+</body>
+
+</html>
